@@ -1,0 +1,40 @@
+<%-include("head")  %>
+<div class="text-center center-div" id="login">
+    <div class="container w-25 border py-5">
+        <div class="title -pb5">
+            <h2 class="font-weight-bold">LOGIN SYSTEM</h2>
+            <span>New User Registeration</span>
+        </div>
+        <form action="/route/register" method="post" class="pt-3" onsubmit="return validate()">
+            <div class="form-group">
+                <input type="email" class="form-control" placeholder="Email" name="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="Password" name="password" id="password" required>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" name="confirm password" id="confirm password" placeholder="Confirm Password" required>
+                <small class="form-text text-muted text-left"><a href="/">Login</a></small>
+
+            </div>
+            <button type="submit" class="btn btn-success rounded-pl">Register</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    function validate(){
+        var password=document.getElementById("password").value;
+        var confirmPassword=document.getElementById("confirm password").value;
+
+        if(password!==confirmPassword){
+            alert("Password does not match!!!");
+            return false;
+        }
+        {
+            return true;
+        }
+    }
+</script>
+
+<%-include("footer")  %>
