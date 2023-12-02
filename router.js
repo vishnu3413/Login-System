@@ -2,14 +2,17 @@ const express=require("express");
 const router=express.Router();
 const mongoose=require("mongoose");
 
-const dbURI="mongodb+srv://vishnupillai3413:vishnu123@node.odyl0yb.mongodb.net/test?retryWrites=true&w=majority";
+mongoose.connect(process.env.MONGO_URL)
+.then(() => {
+    console.log("Connection successful");
+})
+.catch((err)=> { 
+    console.log(err);
+});
 
 router.use(express.static("public"));
 
-mongoose.connect(dbURI,{
-    useNewUrlParser: true,
-    useUnifiedTopology: true,   
-})
+
 const userSchema=new mongoose.Schema({
     email: String,
     password: String,
